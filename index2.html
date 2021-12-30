@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+   <style>
+body{
+        background-color: darkgray;
+    }
+.first {
+  width: 340px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+.first-card{
+  margin-left: 30px;
+}
+.Remember{
+  margin-left: 33px;
+}
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.container {
+  background-color: #f1f1f1;
+  padding: 20px;
+  width: 30vw;
+  margin: 40px;
+  margin-left: 450px;
+  margin-top: 90px;
+  border-radius: 10px;
+}
+.button{
+    margin-top: 30px;
+}
+.checkbox{
+    margin-bottom: 25px;
+}
+h1{
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+}
+
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+
+   </style>
+<script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  var y = document.getElementById("confirmpassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+  if (y.type === "password") {
+    y.type = "text";
+  } else {
+    y.type = "password";
+  }
+}
+</script>
+
+    
+
+    <body>
+      
+        <div class="container">
+            <h1>Create Your Password</h1>
+            <form action="signIn" method="post">
+            <!-- <div class="first-card">
+             
+              <input class="first" type="text" id="usrname" name="usrname" placeholder="Name" required>
+            </div> -->
+            <div class="first-card">
+                <input class="first" type="password" id="myInput" name="psw" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Must contain at least one number and one uppercase and lowercase letter and one special character, and at least 8 or more characters" placeholder="Password" required>
+            </div>
+            <div class="first-card">
+                <input class="first" type="password" name="confirmpassword" id="confirmpassword"  placeholder="Confirm password" required>  
+            </div>
+            <div class="first-card">
+                <input class="checkbox" type="checkbox" onclick="myFunction()">Show Password
+            </div>
+            <input class="first-card Remember" type="checkbox" name="new" id="new"> Remember Me
+            <div class="button first-card">
+                <input class="first" type="submit" value="Next">
+            </div>
+              
+            </form>
+          </div>
+          
+
+         
+    </body>
+</html>
+

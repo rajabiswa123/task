@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <title>
+            Signe up page
+        </title>
+        <link rel ="stylesheet" type="text/css" href="/index.css">
+    </head>
+    <style>
+        body{
+    background-color:rgb(81, 66, 165) ;
+}
+.card{
+   
+    padding: 30px;
+    background-color: oldlace;
+    height: 70vh;
+    width: 70vh;
+    border-radius: 20px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 30px;
+}
+.card-two{
+    padding-bottom: 20px;
+}
+.card-three{
+    padding-top: 20px;
+}
+.first{
+    padding-right: 140px;
+}
+.first-city{
+    padding-right: 148px;
+}
+.first_zip{
+    padding-right: 115px;
+}
+.first-state{
+    padding-right: 145px;
+}
+.first-aup{
+    padding-right: 80px;
+}
+#name,
+#email,#Street,#city,#State,#zip,#aup{
+    padding-left: 40px;
+}
+.button{
+    margin: 40px;
+    margin-left: 150px;
+    
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    
+    padding-top: 10px;
+}
+.image_card{
+    float: right;
+}
+.image{
+    height: 78vh;
+    width: 110vh;
+    padding-top:35px ;
+    padding-right: 10px;
+
+    
+}
+    </style>
+    <body>
+        <div class="card">
+            <form action="signup" method="post">
+                <div class="card-two">
+                    <label class="first" for="name">Name</label>
+                   
+                    <input type="text" name="name" id="name"  placeholder="Write Your name" required>
+                   
+                    
+                </div>
+                <div class="card-two">
+                    <label class="first" for="email">Email</label>
+                    <input type="email" name="email" id="email"  placeholder="Write Your email" required>
+                </div>
+                <div class="card-two">
+                    <label class="first" for="Street">Street</label>
+                    <input type="text" name="Street" id="Street"  placeholder="Write Your street address" >
+                </div>
+                <div class="card-two">
+                    <label class="first-city" for="city">City</label>
+                    <input type="text" name="City" id="city"  placeholder="Write Your city name" >
+                </div>
+                <div class="card-two">
+                    <label class="first-state" for="State">State</label>
+                    <input type="text" name="State" id="State"  placeholder="Write Your State name" >
+                </div>
+                <div class="card-two">
+                    <label class="first_zip" for="zip">Zip Code</label>
+                    <input type="number" name="zip" id="zip"  placeholder="Write Your Zip code">
+                </div>
+                <div class="card-three">
+                    
+                    <input type="checkbox" name="new" id="new" checked> Acknowledge T&C and AUP
+
+                </div>
+               
+                <div class="button" >
+                    <input type="submit" value="Register Now!">
+                </div>
+                
+            </form>
+            
+        </div>
+        <div class="image_card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQer77kJ-lJ3vClWSFlCfKD3aPATLfnSP6Fmaab73QbemgqZS0iH0Dcl_4qW2bmogvJALo&usqp=CAU" class="image">
+        </div>
+  </body> 
+</html> 

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+   
+    <script>
+        function myFunction() {
+      var x = document.getElementById("myInput");
+      
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+      
+    }
+    
+    </script>
+    
+
+   
+    <style>
+        body{
+            background: -webkit-linear-gradient(left, #a445b2, #fa4299);
+            height: 100vh;
+        }
+        form{
+            background-color: white;
+            height: 50vh;
+            width: 25vw;
+            border-radius: 10px;
+            padding: 20px;
+            margin-right: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+        .first{
+            margin-left: 20px;
+            height: 30px;
+            width: 80%;
+        }
+        .sec{
+            margin-left: 15px;
+        }
+        .firstbox{
+            margin-bottom: 20px;
+        }
+        .button{
+            background-color: #a445b2;
+            border-width: 0px;
+            color: black;
+            height: 30px;
+            width: 120px;
+            border-radius: 10px;
+            margin-top: 0px;
+            /* margin-left: 70px; */
+            text-decoration: none;
+            padding: 5px;
+        }
+        .button-one{
+            text-align: center;
+            background-color: #a445b2;
+            border-width: 0px;
+            color: black;
+            height: 19px;
+            width: 90px;
+            border-radius: 10px;
+            margin-top: 0px;
+            /* margin-left: 70px; */
+            text-decoration: none;
+            padding: 5px;
+        }
+        .button-card{
+            display: flex;
+            justify-content: space-between;
+        }
+        .card{
+           display: flex;
+           flex-direction: row;
+           justify-content: center;
+           padding-top: 150px;
+        }
+        .btn{
+            margin-top: 80px;
+        }
+        
+    </style>
+    <body>
+        <div class="card">
+
+        
+        <form action="pubg" method="get">
+            <h1>Login Form</h1>
+            <div class="firstbox">
+                <input class="first" type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div  class="firstbox">
+                <input class="first" type="password" id="myInput" name="psw" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Must contain at least one number and one uppercase and lowercase letter and one special character, and at least 8 or more characters" placeholder="Password" required>
+            </div>
+            <div class="firstbox sec">
+                <input class="checkbox" type="checkbox" onclick="myFunction()">Show Password
+            </div>
+            <div class="button-card btn" >
+                <a class="button-one"  href="reg" >Sign Up</a>
+                <!-- <input class="button" type="submit" value="Signup"> -->
+                <input class="button" type="submit" value="Submit">
+            </div>
+        </form>
+        
+    </div>
+    </body>
+</html>

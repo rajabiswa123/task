@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    .header{
+        background-color:#dfcebb;
+        width: 50vw;
+        height: 64vh;
+        padding: 20px;
+        margin: 30px;
+        margin-left: 320px;
+        border-radius: 20px;
+        display: none;
+    }
+    label{
+        font-weight: bold;
+    }
+    .first{
+        height: 30px;
+        width: 300px;
+        margin-left: 200px;
+    }
+    .second{
+        height: 40px;
+        width: 300px;
+        margin-left: 160px;
+    }
+    .three{
+        margin-left: 180px;
+    }
+    .four{
+        margin-left: 221px;
+    }
+    .five{
+        margin-left: 280px;
+    }
+    .six{
+        margin-left: 234px;
+    }
+    .crd{
+        padding-bottom: 20px;
+    }
+    
+
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ul li {
+
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  list-style-type: none;
+ 
+  font-size: 18px;
+}
+li:nth-child(2n){
+  background-color:rgb(224, 195, 195) ;
+}
+
+ 
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+     
+
+    
+.icon{
+  
+   
+  float: right;
+
+  
+  margin-right: 70px;
+} 
+ 
+.icon:hover {
+  background-color: blue;
+  color: white;
+}
+     
+ 
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: green;
+  color: white;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 3px;
+  text-decoration: none;
+}
+
+.addBtn:hover {
+  background-color: rgb(97, 204, 97);
+}
+
+h1{
+  padding-left: 30px;
+  font-size: 3rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a{
+    font-size: 20px;
+    text-decoration: none;
+}
+p{
+  font-size: 20px;
+  margin-top: 0;
+
+}
+.input-one{
+  height: 30px;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nav-one{
+   
+   
+    color: black;
+    padding: 2px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.nav-two{
+    background-color: red;
+    height: 30px;
+    width: 90px;
+    color: black;
+    padding: 2px;
+    font-weight: bold;
+}
+
+
+button {
+  width: 60px;
+  
+  margin: 0 3px;
+  background-color: #ff7e00;
+  outline: none;
+  border: 1px solid #ff7e00;
+  box-shadow: 2px 2px 2px #3f3f3f;
+  float: right;
+ 
+}
+.deletebtn{
+  background-color: red;
+}
+
+button:hover {
+  box-shadow: 2px 2px 3px ;
+}
+
+button:active {
+  box-shadow: 1px 1px 3px ;
+}
+
+</style>
+
+<body>
+  <div class="nav">
+    <p class="nav-one" id="task" >Create Task </p>
+    <a class="nav-one"  href="change">Change Password</a>
+    <a class="nav-one" href="home">Home</a>
+    <input class="input-one" type="search" placeholder="Search">
+    <a class="nav-two"  href="pqrs" >Log Out</a>
+</div>
+
+
+<div id="myDIV" class="header">
+  
+  <div class="crd">
+    <label for="task">Task Name</label> 
+    <input  class="first" type="text" id="myInput" placeholder="Task Name...">
+  </div>
+   
+    <div class="crd" >
+        <label for="task">Task Description</label>
+    
+        <textarea class="second" id="iputtask" name="task"  pattern ="{4,}${,256}" title="Must contain at least Length Minimum: 4 and Maximum: 256" placeholder="Write Your Task Description"></textarea>
+    
+    </div>
+    <div class="crd" >
+        <label for="category">Task category</label>
+        <select class="three"  name="category" id="category">
+            <option value="Personal" selected>Personal</option>
+            <option value="Work" >Work</option>
+            <option value="Recreational">Recreational</option>
+            
+        </select>
+    </div>
+    <div class="crd">
+        <label for="Priority">Priority</label>
+        <select class="four" name="Priority" id="Priority">
+            <option value="Low" >low</option>
+            <option value="Medium" selected>Medium</option>
+            <option value="High">High</option>
+            
+        </select>
+    </div>
+    <div class="crd">
+      <label style="display: none;" id="lb1">Invalid Selection</label>
+        <input  id="dt" value="" onchange="checkDate(value)" class="five" type="date" name="due"   >
+    </div>
+    <div class="crd" >
+        <label for="Status">Status</label>
+        <select class="six" name="Status" id="Status">
+            <option >Not Started</option>
+            <option>In-Progress</option>
+        </select>
+    </div>
+    <a onclick="newElement()" class="addBtn">Add</a>
+   
+</div>
+
+<h1>
+  Existing Task
+</h1>
+<ul id="myUL">
+    <li id="edit"> <button class="deletebtn" type="submit" id="delete"onclick="deleteelement(document.getElementById('edit'))">delete</button><button type="submit" id="edit-button"onclick="editelement(document.getElementById('edit'))">Edit</button>
+        <button type="submit" id="end-editing"onclick="saveelement(document.getElementById('edit'))">Save</button>Hit-the-gym ,  this is good!, Work, Low ,15-12-2021, Not Started! </li>
+      
+    <li id="editone"><button class="deletebtn" type="submit" id="delete"onclick="deleteelement(document.getElementById('editone'))">delete</button><button type="submit" id="edit-button-one"onclick="editelement(document.getElementById('editone'))">Edit</button>
+        <button type="submit" id="end-editing-one"onclick="saveelement(document.getElementById('editone'))">Save</button>Pay-bills, this is fine!, Personal ,heigh ,14-12-2021, Not Started! </li>
+        
+    <li id="edittwo"><button class="deletebtn" type="submit" id="delete"onclick="deleteelement(document.getElementById('edittwo'))">delete</button><button type="submit" id="edit-button-two"onclick="editelement(document.getElementById('edittwo'))">Edit</button>
+        <button type="submit" id="end-editing-two"onclick="saveelement(document.getElementById('edittwo'))">Save</button>Organize-office, this is good for future!, Recreption, Medium, 12-12-2021, In-progress! </li>
+       
+    <li id="editthree"><button class="deletebtn" type="submit" id="delete"onclick="deleteelement(document.getElementById('editthree'))">delete</button><button type="submit" id="edit-button-three"onclick="editelement(document.getElementById('editthree'))">Edit</button>
+        <button type="submit" id="end-editing-three"onclick="saveelement(document.getElementById('editthree'))">Save</button>Pay-bills, this is fine!, Personal, heigh, 14-12-2021, Not Started! </li>
+        
+    <li id="editfour"><button class="deletebtn" type="submit" id="delete"onclick="deleteelement(document.getElementById('editfour'))">delete</button><button type="submit" id="edit-button-four"onclick="editelement(document.getElementById('editfour'))">Edit</button>
+        <button type="submit" id="end-editing-four"onclick="saveelement(document.getElementById('editfour'))">Save</button>Organize-office, this is good for future!, Recreption, Medium, 12-12-2021, In-progress! </li>
+    <li id="editfive"><button class="deletebtn" type="submit" id="delet"onclick="deleteelement(document.getElementById('editfive'))">delete</button><button type="submit" id="edit-button-five"onclick="editelement(document.getElementById('editfive'))">Edit</button>
+        <button type="submit" id="end-editing-five"onclick="saveelement(document.getElementById('editfive'))">Save</button>Pay-bills, this is fine!, Personal, heigh, 14-12-2021, Not Started! </li>
+    <li id="editsix"><button class="deletebtn" type="submit" id="delet" onclick="deleteelement(document.getElementById('editsix'))">delete</button><button type="submit" id="edit-button-six"onclick="editelement(document.getElementById('editsix'))">Edit</button>
+        <button type="submit" id="end-editing-six"onclick="saveelement(document.getElementById('editsix'))">Save</button>Organize-office, this is good for future!, Recreption, Medium, 12-12-2021, In-progress! </li>
+     
+    
+       
+  </ul>
+
+
+<script>
+    function checkDate(dt) {
+            var tom = new Date();
+            var dateArray=dt.toString().split("-");
+            var dateA=dateArray[2];
+            var monthA=dateArray[1];
+            var yearA=dateArray[0];
+            var dtt=tom.getDate();
+            if(dtt<10){
+                dtt="0"+""+tom.getDate();
+            }
+            var mon=tom.getMonth()+1;
+            if(mon<10){
+                mon="0"+""+mon;
+            }
+            var dateString=tom.getFullYear()+"-"+mon+"-"+dtt;
+
+            if(dateA===dtt){
+                if(monthA==mon){
+                    if(yearA==tom.getFullYear()){
+                        document.getElementById("lb1").style.display="none"
+                    }
+                }
+            }else if(dateA==(++dtt)){
+                if(monthA==mon){
+                    if(yearA==tom.getFullYear()){
+                        document.getElementById("lb1").style.display="none"
+                    }
+                }
+            }else{
+                document.getElementById("lb1").style.display="block"
+            }
+            
+        }
+
+
+
+
+function editelement(edit){
+  edit.contentEditable = true;
+  edit.style.backgroundColor = "#dddbdb";
+}
+
+function saveelement(save){
+  save.contentEditable = false;
+  save.style.backgroundColor = "#ffe44d";
+}
+
+
+function deleteelement(delet){
+
+  
+  delet.remove();
+
+}
+
+function callFunc(liId){
+
+  liId.contentEditable = true;
+  liId.style.backgroundColor = "#dddbdb";
+ }
+ function callsave(liId){
+ 
+  liId.contentEditable = false;
+  liId.style.backgroundColor = "#ffe44d";
+
+ }
+
+ function calldelet(liId){
+  
+   liId.remove();
+ }
+
+// Create a new list item when clicking on the "Add" button
+var newbiswa = "";
+var counter = 0;
+function newElement() {
+  
+    
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var inputValueTwo = document.getElementById("iputtask").value;
+  var inputValueFour = document.getElementById("dt").value;
+  var inputValueFive = document.querySelector("#Priority");
+  var b = inputValueFive.options[inputValueFive.selectedIndex].value;
+  var inputValueThree = document.querySelector("#category");
+  var v = inputValueThree.options[inputValueThree.selectedIndex].value;
+  var inputValueSix = document.querySelector("#Status");
+  var a = inputValueSix.options[inputValueSix.selectedIndex].value;
+
+  
+  var data =inputValue + "    ,   "+ inputValueTwo +"   ,   "+v +"   , "+b  +"  , "+inputValueFour+"  ,  "+a+"!" ;
+  counter = counter+1;
+  
+  var ids = "upli" + counter;
+
+ 
+  newbiswa += '<li id='+ids+'_'+'><button class="deletebtn" type="submit" id='+counter+'_'+'deletebtn'+' onclick="calldelet('+ids+'_'+')" >delete</button><button type="submit" id='+counter+'_'+'editbtn'+' onclick="callFunc('+ids+'_'+')" >Edit</button><button type="submit" id='+counter+'_'+'savebtn'+' onclick="callsave('+ids+'_'+')">Save</button>'+ data +'</li>'
+  
+ 
+    document.getElementById("myUL").innerHTML = newbiswa;
+  
+}
+
+ 
+ $("p").on("click",function(){
+    $("#myDIV").slideToggle();
+});
+
+
+</script>
+
+</body>
+</html>
